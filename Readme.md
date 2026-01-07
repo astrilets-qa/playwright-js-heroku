@@ -101,14 +101,3 @@ Professional test architecture
 Scalable automation design
 
 CI-integrated UI testing practices
-
-
----
-
-## Next “senior polish” move (optional but high impact)
-In GitHub repo settings, add:
-- **Description** (right sidebar): “Playwright UI automation framework (POM, data-driven, CI)”
-- **Topics**: `playwright`, `javascript`, `typescript`, `automation`, `qa`, `e2e`, `github-actions`
-
-Do those fixes and it stops looking like “student project” and starts looking like “this guy can join our team and ship.”
-::contentReference[oaicite:7]{index=7}

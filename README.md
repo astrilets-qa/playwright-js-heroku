@@ -50,14 +50,15 @@ Preference for semantic locators such as getByLabel() to improve test stability 
 ### Test tagging
 Supports selective execution using tags such as @smoke and @regression.
 
-### Session Handling Note
-⚠️ The demo application does not persist login sessions across browser contexts.
+## Session Handling Note
+⚠️ The demo application does **not persist login sessions across browser contexts**.
 
-Because of this limitation:
- - Login reuse is simulated within the same test
- - No reliance on Playwright storageState
+For this reason:
+- Session reuse is simulated within the same test
+- Playwright `storageState` is intentionally not used
 
-The framework itself fully supports real applications that persist sessions via cookies or local storage.
+The framework fully supports real-world applications that persist sessions via cookies or local storage.
+
 
 ### Continuous Integration
  - Automated execution via GitHub Actions
@@ -99,8 +100,10 @@ test('@regression Login with invalid credentials', async ({ page }) => {
   await expect(loginPage.errorMessage).toContainText('invalid');
 });
 ```
-### Purpose of This Repository
-This project serves as a proof-of-skill automation framework, demonstrating:
- - Professional test architecture
- - Scalable automation design
- - CI-integrated UI testing practices
+## Purpose of This Repository
+This repository serves as a **production-style automation framework** demonstrating:
+- Scalable UI test architecture
+- Maintainable Playwright design patterns
+- CI-integrated automated testing
+- Senior-level automation practices
+

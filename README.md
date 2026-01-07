@@ -29,11 +29,13 @@ Target demo application:
 ---
 
 ## Project Structure
+```bash
 pages/        → Page Objects (UI interactions only)
 tests/        → Test logic and assertions
 testdata/     → Centralized test data
 utils/        → Helpers and shared logic
 .github/      → CI configuration (GitHub Actions)
+```
 
 ## Framework Design Principles
 ### Page Object Model (POM)

@@ -29,75 +29,76 @@ Target demo application:
 ---
 
 ## Project Structure
-```text
 pages/        → Page Objects (UI interactions only)
 tests/        → Test logic and assertions
 testdata/     → Centralized test data
 utils/        → Helpers and shared logic
 .github/      → CI configuration (GitHub Actions)
 
-
-Framework Design Principles
-
-Page Object Model (POM)
+## Framework Design Principles
+### Page Object Model (POM)
 Separates test logic from UI interactions for maintainability and reuse.
 
-Data-driven approach
+### Data-driven approach
 Enables easy expansion of test scenarios without duplicating code.
 
-Stable selector strategy
-Preference for semantic locators such as getByLabel() for reliability.
+### Stable selector strategy
+Preference for semantic locators such as getByLabel() to improve test stability and resilience to UI changes.
 
-Test tagging
-Supports selective execution of smoke and regression suites.
+### Test tagging
+Supports selective execution using tags such as @smoke and @regression.
 
+### Session Handling Note
+⚠️ The demo application does not persist login sessions across browser contexts.
 
-Session Handling Note
-
-⚠️ The demo site does not persist sessions across browser contexts.
-
-As a result:
-
-Login reuse is simulated within the same test
-
-No reliance on Playwright storageState
+Because of this limitation:
+ - Login reuse is simulated within the same test
+ - No reliance on Playwright storageState
 
 The framework itself fully supports real applications that persist sessions via cookies or local storage.
 
-
-Continuous Integration
-
-Automated execution via GitHub Actions
-
-Fails fast on regressions
-
-Generates Playwright HTML reports on test completion
+### Continuous Integration
+ - Automated execution via GitHub Actions
+ - Fails fast on regressions
+ - Generates Playwright HTML reports on test completion
 
 
-Running Tests Locally
+### Running Tests Locally
 
-Install dependencies: npm install
+#### Install dependencies: 
+```bash
+npm install
+```
 
-Run all tests: npx playwright test
+#### Run all tests: 
+```bash 
+npx playwright test
+```
 
-Run in headed mode: npx playwright test --headed
+#### Run in headed mode: 
+```bash 
+npx playwright test --headed
+```
 
-Debug mode: npx playwright test --debug
+#### Debug mode: 
+```bash 
+npx playwright test --debug
+```
 
-Run a specific test: npx playwright test dropdown.spec.js
+Run a specific test:
+```bash 
+npx playwright test dropdown.spec.js
+```
 
-Sample Test
+### Sample Test
+```bash 
 test('@regression Login with invalid credentials', async ({ page }) => {
   await loginPage.login('wrongUser', 'wrongPass');
   await expect(loginPage.errorMessage).toContainText('invalid');
 });
-
-Purpose of This Repository
-
+```
+### Purpose of This Repository
 This project serves as a proof-of-skill automation framework, demonstrating:
-
-Professional test architecture
-
-Scalable automation design
-
-CI-integrated UI testing practices
+ - Professional test architecture
+ - Scalable automation design
+ - CI-integrated UI testing practices

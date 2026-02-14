@@ -3,15 +3,20 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Hovers Feature', () => {
-  test('type: @regression - user info appears on hover', async ({ page }) => {
+  test('type: @regression - user info appears on hover for all users', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/hovers');
 
-    const firstAvatar = page.locator('.figure').first();
-    const userInfo = firstAvatar.locator('.figcaption');
+    const avatars = page.locator('.figure');
+    const count = await avatars.count();
 
-    await firstAvatar.hover();
+    for (let i=0; i< count; i++) {
+        const avatar = avatars.nth(i);
+        const caption = avatar.locator('.figcaption');
 
-    await expect(userInfo).toBeVisible();
-    await expect(userInfo).toContainText('name: user1');
+        await avatar.hover();
+        
+        await expect (caption).toBeVisible();
+        await expect (caption).toContainText(`name: user${i+1}`);
+    }
   });
 });

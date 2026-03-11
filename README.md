@@ -1,7 +1,8 @@
 # Playwright UI Automation Framework
 ![Playwright Tests](https://github.com/Tolstr/playwright-js-heroku/actions/workflows/playwright.yml/badge.svg)
 
-Automated UI test framework built with **Playwright (JavaScript/TypeScript)** to demonstrate **scalable test architecture**, **maintainable automation design**, and **CI-ready execution**.
+**Project Strategy & Evolution**
+This framework serves as an advanced Proof of Concept (PoC) evolved from my strategic work at Crown Castle, where I focused on stabilizing mission-critical smoke tests for enterprise analytics platforms. It demonstrates a transition from initial core-flow validation to a fully scalable architecture, utilizing **Page Object Model (POM)** and data-driven patterns to handle complex web behaviors. The primary objective is to prove **CI/CD readiness** and maintainable automation design, ensuring high-confidence releases with minimal manual intervention.
 
 Target demo application:  
 👉 https://the-internet.herokuapp.com/login

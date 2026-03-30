@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import CheckboxesPage from '../../pages/CheckboxesPage.js';
+import CheckboxesPage from '../../pages/checkboxesPage.js';
 
 test.describe("Checkboxes", () => {
     /**@type {import('../../pages/CheckboxesPage.js').default} */ 

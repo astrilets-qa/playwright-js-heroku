@@ -17,7 +17,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         channel: 'chrome',
-        baseURL: 'https://the-internet.herokuapp.com',
+        baseURL: 'https://the-internet.herokuapp.com/',
         storageState: 'auth.json',
       },
     },

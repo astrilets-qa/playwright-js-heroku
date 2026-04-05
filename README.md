@@ -91,7 +91,7 @@ npx playwright test --debug
 
 Run a specific test:
 ```bash 
-npx playwright test dropdown.spec.js
+npx playwright test dropdown.spec.ts
 ```
 
 ### Sample Test

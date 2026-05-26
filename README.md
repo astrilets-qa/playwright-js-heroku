@@ -33,7 +33,7 @@ Target demo application:
 ```bash
 pages/        → Page Objects (UI interactions only)
 tests/        → Test logic and assertions
-testdata/     → Centralized test data
+test-data/    → Centralized test data
 utils/        → Helpers and shared logic
 .github/      → CI configuration (GitHub Actions)
 ```
@@ -54,11 +54,7 @@ Supports selective execution using tags such as @smoke and @regression.
 ## Session Handling Note
 ⚠️ The demo application does **not persist login sessions across browser contexts**.
 
-For this reason:
-- Session reuse is simulated within the same test
-- Playwright `storageState` is intentionally not used
-
-The framework fully supports real-world applications that persist sessions via cookies or local storage.
+For this reason, `global-setup.mjs` generates a fresh `auth.json` before each run, which is used as `storageState` for the UI test project. The `auth.json` file is gitignored and never committed.
 
 
 ### Continuous Integration
@@ -95,10 +91,10 @@ npx playwright test dropdown.spec.ts
 ```
 
 ### Sample Test
-```bash 
-test('@regression Login with invalid credentials', async ({ page }) => {
+```typescript
+test('@regression Login with invalid credentials', async () => {
   await loginPage.login('wrongUser', 'wrongPass');
-  await expect(loginPage.errorMessage).toContainText('invalid');
+  await loginPage.verifyFlashMessage('Your username is invalid!');
 });
 ```
 ## Purpose of This Repository

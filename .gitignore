@@ -8,3 +8,6 @@ node_modules/
 
 # Environment variables
 .env*
+
+#Ignore auth.json in public repo on GitHub is the best pracrice to not expose sensetive data
+auth.json

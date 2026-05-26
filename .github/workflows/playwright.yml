@@ -28,6 +28,9 @@ jobs:
       # - name: Run tests
       #   run: npx playwright test
       - name: Run appropriate test set
+        env:
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             npx playwright test --grep @smoke --reporter=line
@@ -41,9 +44,3 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'

@@ -20,12 +20,24 @@ Target demo application:
 ---
 
 ## Test Coverage
-- ✅ Valid login
-- ❌ Invalid login (wrong credentials)
-- ❌ Empty credentials validation
-- 🔁 Logout flow
-- 🔽 Dropdown interaction and validation
-- 🏷 Tagged execution (`@smoke`, `@regression`)
+
+**Auth**
+- Valid login and logout (`@smoke`)
+- Invalid username / invalid password / empty fields (data-driven, `@regression`)
+
+**UI Components**
+- Dropdown selection and value verification (`@regression`)
+- Checkbox default state and independent toggling (`@smoke`, `@regression`)
+- Add/Remove Elements — dynamic DOM assertions (`@smoke`, `@regression`)
+- Dynamic Controls — enable/disable checkbox and input (`@smoke`, `@regression`)
+- Hover interactions — user info visibility (`@regression`)
+- Number inputs — keyboard interaction (ArrowUp/ArrowDown) (`@smoke`, `@regression`)
+- JS Alerts, Confirms, and Prompts — dialog handling (`@smoke`, `@regression`)
+
+**API**
+- GET tags and articles
+- Create and delete article (end-to-end flow)
+- Create, update, and delete article (full CRUD flow)
 
 ---
 
